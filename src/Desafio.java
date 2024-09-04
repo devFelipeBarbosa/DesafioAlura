@@ -19,7 +19,7 @@ public class Desafio {
                 2 - Transferir valor
                 3 - Receber valor
                 4 - Sair
-                """;
+                \n""";
 
         Scanner reading = new Scanner(System.in);
 
@@ -27,10 +27,26 @@ public class Desafio {
             System.out.println(menu);
             option = reading.nextInt();
 
+            if(option == 1){
+                System.out.println("O saldo atualizado é: " + balance + ".");
+            } else if (option == 2) {
+                System.out.println("Qual o valor que deseja transferir?");
+                double value = reading.nextDouble();
+                if (value > balance) {
+                    System.out.println("\nNão há saldo para realizar a transferência!");
+                } else{
+                    balance -= value;
+                    System.out.printf("\nSeu saldo atual: " + balance + ".");
+                }
+            } else if (option == 3) {
+                System.out.printf("Valor a receber/depositar?\n");
+                double value = reading.nextDouble();
+                balance += value;
+                System.out.println("Novo saldo: " + balance + ".");
+            } else if (option != 4) {
+                System.out.println("Opção inválida!!\n");
+            }
+
         }
-
-
-
-
     }
 }
